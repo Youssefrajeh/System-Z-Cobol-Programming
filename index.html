@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INFO-3105 System Z COBOL Programming Practice Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>INFO-3105 System Z COBOL Programming Practice Quiz</h1>
+        <p>
+          Test your knowledge of System Z COBOL programming concepts for
+          INFO-3105
+        </p>
+      </header>
+
+      <div id="start-screen" class="screen">
+        <div class="welcome-card">
+          <h2>Welcome to the INFO-3105 System Z COBOL Programming Quiz!</h2>
+          <p>
+            This quiz covers fundamental System Z COBOL programming concepts for
+            INFO-3105 including:
+          </p>
+          <ul>
+            <li>Data Division and Working-Storage Section</li>
+            <li>Procedure Division and statements</li>
+            <li>File handling and I/O operations</li>
+            <li>Data types and declarations</li>
+            <li>Control structures and loops</li>
+          </ul>
+          <div class="quiz-info">
+            <p>
+              <strong>Total Questions:</strong>
+              <span id="total-questions">0</span>
+            </p>
+            <p><strong>Time Limit:</strong> No time limit</p>
+          </div>
+          <div class="main-buttons">
+            <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+            <button id="study-btn" class="btn btn-secondary">Study Mode</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="quiz-screen" class="screen hidden">
+        <div class="quiz-header">
+          <div class="progress-info">
+            <span id="question-counter">Question 1 of 10</span>
+            <div class="progress-bar">
+              <div id="progress-fill"></div>
+            </div>
+          </div>
+          <div class="score-info">
+            <span id="score">Score: 0</span>
+          </div>
+        </div>
+
+        <div class="question-container">
+          <h3 id="question-text">Loading question...</h3>
+          <div id="options-container" class="options">
+            <!-- Options will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <div class="quiz-controls">
+          <button id="exit-btn" class="btn btn-danger">Exit Quiz</button>
+          <div class="navigation-buttons">
+            <button id="prev-btn" class="btn btn-secondary">Previous</button>
+            <button id="next-btn" class="btn btn-primary">Next</button>
+            <button id="submit-btn" class="btn btn-success hidden">
+              Submit Quiz
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="study-screen" class="screen hidden">
+        <div class="study-card">
+          <h2>Study Mode - All Questions</h2>
+          <p>Review all questions with correct answers and explanations.</p>
+
+          <!-- Category Filter Buttons -->
+          <div class="category-filters">
+            <button class="category-btn active" data-category="all">
+              All Questions
+            </button>
+            <button class="category-btn" data-category="mcq">
+              Multiple Choice
+            </button>
+            <button class="category-btn" data-category="truefalse">
+              True/False
+            </button>
+            <button class="category-btn" data-category="coding">Coding</button>
+          </div>
+
+          <div id="study-questions"></div>
+          <div class="action-buttons">
+            <button id="back-to-main" class="btn btn-primary">
+              Back to Main Menu
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="results-screen" class="screen hidden">
+        <div class="results-card">
+          <h2>Quiz Results</h2>
+          <div class="score-summary">
+            <h3 id="final-score">Score: 0/0</h3>
+            <p id="percentage">0%</p>
+            <div class="grade" id="grade">Grade: F</div>
+          </div>
+          <div class="results-breakdown">
+            <h4>Question Breakdown:</h4>
+            <div id="question-breakdown"></div>
+          </div>
+          <div class="action-buttons">
+            <button id="review-btn" class="btn btn-secondary">
+              Review Answers
+            </button>
+            <button id="restart-btn" class="btn btn-primary">
+              Take Quiz Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
