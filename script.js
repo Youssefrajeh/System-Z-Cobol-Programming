@@ -1048,6 +1048,281 @@ const codingQuestions = [
          ],
          correct: 1,
          explanation: "IF p1 >= p2 AND p1 >= p3 MOVE p1 TO p-max ELSE IF p2 >= p1 AND p2 >= p3 MOVE p2 TO p-max ELSE MOVE p3 TO p-max is the correct logic for finding the maximum of three values."
+     },
+     {
+         question: "In DFSort, the SORTFIELDS statement specifies:",
+         options: [
+             "The type of VSAM file to process",
+             "The start position, length, data type, and sequence for sorting",
+             "Which JCL procedure to run",
+             "The file access mode in COBOL"
+         ],
+         correct: 1,
+         explanation: "SORTFIELDS tells DFSort where to start, how long the key is, what type it is, and the sort order."
+     },
+     {
+         question: "The smallest unit of I/O in a VSAM dataset is:",
+         options: [
+             "Control Area (CA)",
+             "Control Interval (CI)",
+             "Block",
+             "Track"
+         ],
+         correct: 1,
+         explanation: "A CI is the smallest block of data VSAM reads/writes in a single operation."
+     },
+     {
+         question: "Which AMS command displays catalog information for a dataset?",
+         options: [
+             "PRINT",
+             "LISTCAT",
+             "REPRO",
+             "ALTER"
+         ],
+         correct: 1,
+         explanation: "LISTCAT lists metadata and attributes from the catalog."
+     },
+     {
+         question: "In KSDS random access, the ACCESS MODE must be:",
+         options: [
+             "SEQUENTIAL",
+             "RANDOM",
+             "DYNAMIC",
+             "EXCLUSIVE"
+         ],
+         correct: 1,
+         explanation: "RANDOM access allows direct retrieval by primary key."
+     },
+     {
+         question: "The INVALID KEY clause is used in COBOL to:",
+         options: [
+             "Skip a record when sequentially reading",
+             "Handle errors when a key is not found or duplicate key occurs",
+             "Reorganize VSAM datasets",
+             "Prevent file locks"
+         ],
+         correct: 1,
+         explanation: "The INVALID KEY clause handles errors when a key is not found or duplicate key occurs."
+     },
+     {
+         question: "Which clause allows multiple records to share the same alternate key?",
+         options: [
+             "WITH NONUNIQUE KEYS",
+             "WITH DUPLICATES",
+             "ALLOW DUPLICATES",
+             "WITH NONUNIQUE INDEX"
+         ],
+         correct: 1,
+         explanation: "WITH DUPLICATES allows multiple records to share the same alternate key."
+     },
+     {
+         question: "The EVALUATE statement in COBOL is similar to:",
+         options: [
+             "FOR loop",
+             "SWITCH or CASE statement in other languages",
+             "IF without ELSE",
+             "GOTO"
+         ],
+         correct: 1,
+         explanation: "The EVALUATE statement is similar to SWITCH or CASE statements in other programming languages."
+     },
+     {
+         question: "What must happen before you can REWRITE a KSDS record?",
+         options: [
+             "OPEN the file in INPUT mode",
+             "Use the START statement",
+             "READ the record first",
+             "DELETE the record first"
+         ],
+         correct: 2,
+         explanation: "You must READ the record first before you can REWRITE it."
+     },
+     {
+         question: "Which numeric editing symbol displays a negative value with \"CR\"?",
+         options: [
+             "–",
+             "DB",
+             "CR",
+             "NEG"
+         ],
+         correct: 2,
+         explanation: "The CR editing symbol displays a negative value with \"CR\"."
+     },
+     {
+         question: "In sequential KSDS processing, the START statement:",
+         options: [
+             "Reads the first record",
+             "Positions the file pointer to a specified key value",
+             "Closes the file",
+             "Deletes a record"
+         ],
+         correct: 1,
+         explanation: "The START statement positions the file pointer to a specified key value."
+     },
+     {
+         question: "Default parameter passing in COBOL is:",
+         options: [
+             "BY VALUE",
+             "BY REFERENCE",
+             "BY CONTENT",
+             "BY ADDRESS"
+         ],
+         correct: 1,
+         explanation: "Default parameter passing in COBOL is BY REFERENCE."
+     },
+     {
+         question: "In a COBOL subprogram, parameters are defined in:",
+         options: [
+             "WORKING-STORAGE SECTION",
+             "LINKAGE SECTION",
+             "ENVIRONMENT DIVISION",
+             "PROCEDURE DIVISION"
+         ],
+         correct: 1,
+         explanation: "In a COBOL subprogram, parameters are defined in the LINKAGE SECTION."
+     },
+     {
+         question: "In DB2 programming, the SQLCODE value 100 means:",
+         options: [
+             "Successful execution",
+             "No rows found",
+             "Syntax error in SQL",
+             "Duplicate row found"
+         ],
+         correct: 1,
+         explanation: "SQLCODE value 100 means no rows found."
+     },
+     {
+         question: "Which step is performed first when preparing a COBOL DB2 program?",
+         options: [
+             "Compile",
+             "Precompile",
+             "Link",
+             "Bind"
+         ],
+         correct: 1,
+         explanation: "Precompile is performed first when preparing a COBOL DB2 program."
+     },
+     {
+         question: "The DBRM is created during which step?",
+         options: [
+             "Bind",
+             "Compile",
+             "Link",
+             "Precompile"
+         ],
+         correct: 3,
+         explanation: "The DBRM is created during the Precompile step."
+     },
+     {
+         question: "Which AMS command is used to copy data between datasets?",
+         options: [
+             "PRINT",
+             "REPRO",
+             "ALTER",
+             "EXPORT"
+         ],
+         correct: 1,
+         explanation: "The REPRO command is used to copy data between datasets."
+     },
+     {
+         question: "In multi-level control break logic, the highest-level break must be:",
+         options: [
+             "Checked last",
+             "Checked first",
+             "Ignored if there is an inner break",
+             "Printed without totals"
+         ],
+         correct: 1,
+         explanation: "In multi-level control break logic, the highest-level break must be checked first."
+     },
+     {
+         question: "An S0C7 abend occurs when:",
+         options: [
+             "A dataset is not found",
+             "Non-numeric data is used in a numeric calculation",
+             "A duplicate record is inserted into KSDS",
+             "DB2 connection is lost"
+         ],
+         correct: 1,
+         explanation: "An S0C7 abend occurs when non-numeric data is used in a numeric calculation."
+     },
+     {
+         question: "In DFSort, SORT FIELDS=COPY is used to:",
+         options: [
+             "Copy records without sorting",
+             "Copy records and sort in ascending order",
+             "Copy only duplicate records",
+             "Copy only records matching criteria"
+         ],
+         correct: 0,
+         explanation: "SORT FIELDS=COPY is used to copy records without sorting."
+     },
+     {
+         question: "In DB2, a cursor must be:",
+         options: [
+             "Opened before declared",
+             "Declared before opened",
+             "Closed before fetching",
+             "Fetched before declared"
+         ],
+         correct: 1,
+         explanation: "In DB2, a cursor must be declared before opened."
+     },
+     {
+         question: "Which AMS command deletes a dataset?",
+         options: [
+             "PURGE",
+             "DELETE",
+             "ERASE",
+             "REMOVE"
+         ],
+         correct: 1,
+         explanation: "The DELETE command deletes a dataset."
+     },
+     {
+         question: "In KSDS, alternate key access requires:",
+         options: [
+             "CA sizing",
+             "An AIX (Alternate Index)",
+             "LISTCAT",
+             "DBRM"
+         ],
+         correct: 1,
+         explanation: "In KSDS, alternate key access requires an AIX (Alternate Index)."
+     },
+     {
+         question: "COBOL PERFORM VARYING is used to:",
+         options: [
+             "Call a subprogram",
+             "Loop with a changing counter",
+             "Sort records",
+             "Perform error handling"
+         ],
+         correct: 1,
+         explanation: "COBOL PERFORM VARYING is used to loop with a changing counter."
+     },
+     {
+         question: "SQLCA in COBOL is used to:",
+         options: [
+             "Control cursor position",
+             "Store database status after each SQL",
+             "Define host variables",
+             "Bind SQL statements"
+         ],
+         correct: 1,
+         explanation: "SQLCA in COBOL is used to store database status after each SQL."
+     },
+     {
+         question: "The WITH DUPLICATES phrase in alternate keys:",
+         options: [
+             "Prevents duplicate alternate keys",
+             "Allows duplicate alternate keys",
+             "Deletes duplicate records",
+             "Skips duplicate keys during read"
+         ],
+         correct: 1,
+         explanation: "The WITH DUPLICATES phrase in alternate keys allows duplicate alternate keys."
      }
 ];
 
@@ -1250,6 +1525,231 @@ const trueFalseQuestions = [
          ],
          correct: 1,
          explanation: "False - It requires nested OCCURS clauses."
+     },
+     {
+         question: "A Control Area (CA) contains multiple Control Intervals (CIs).",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - A Control Area (CA) contains multiple Control Intervals (CIs)."
+     },
+     {
+         question: "KSDS files can only be accessed sequentially.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - KSDS files can be accessed sequentially, randomly, or dynamically."
+     },
+     {
+         question: "The INVALID KEY clause can be used with WRITE, REWRITE, and DELETE statements.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The INVALID KEY clause can be used with WRITE, REWRITE, and DELETE statements."
+     },
+     {
+         question: "Alternate keys in KSDS must always be unique.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - Alternate keys in KSDS can allow duplicates with the WITH DUPLICATES clause."
+     },
+     {
+         question: "EVALUATE in COBOL can test ranges using THRU.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - EVALUATE in COBOL can test ranges using THRU."
+     },
+     {
+         question: "Before using REWRITE, you must READ the record.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - Before using REWRITE, you must READ the record."
+     },
+     {
+         question: "The CR editing symbol is used for negative amounts.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The CR editing symbol is used for negative amounts."
+     },
+     {
+         question: "In KSDS sequential access, START can be used with an alternate key.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - In KSDS sequential access, START can be used with an alternate key."
+     },
+     {
+         question: "In COBOL, parameters in subprograms are always passed BY VALUE unless specified otherwise.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - In COBOL, parameters in subprograms are passed BY REFERENCE by default."
+     },
+     {
+         question: "The LINKAGE SECTION in a subprogram defines parameters received from the caller.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The LINKAGE SECTION in a subprogram defines parameters received from the caller."
+     },
+     {
+         question: "SQLCODE 0 means successful execution of SQL.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - SQLCODE 0 means successful execution of SQL."
+     },
+     {
+         question: "The DBRM is created during the compile step.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - The DBRM is created during the precompile step."
+     },
+     {
+         question: "REPRO can be used to copy VSAM data to a sequential file.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - REPRO can be used to copy VSAM data to a sequential file."
+     },
+     {
+         question: "In multi-level control breaks, the inner break is processed before the outer break.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - In multi-level control breaks, the outer break is processed before the inner break."
+     },
+     {
+         question: "An S0C7 error can be caused by uninitialized numeric fields.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - An S0C7 error can be caused by uninitialized numeric fields."
+     },
+     {
+         question: "SORT FIELDS=COPY in DFSort changes the order of records.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - SORT FIELDS=COPY in DFSort copies records without changing their order."
+     },
+     {
+         question: "A cursor can be FETCHed after it is CLOSED.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - A cursor cannot be FETCHed after it is CLOSED."
+     },
+     {
+         question: "DCLGEN helps ensure COBOL data definitions match DB2 table definitions.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - DCLGEN helps ensure COBOL data definitions match DB2 table definitions."
+     },
+     {
+         question: "In AMS, LISTCAT can display dataset attributes.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - In AMS, LISTCAT can display dataset attributes."
+     },
+     {
+         question: "The WITH DUPLICATES clause is used in alternate key definitions.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The WITH DUPLICATES clause is used in alternate key definitions."
+     },
+     {
+         question: "In DB2, a SQLCODE of 100 is an error.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - In DB2, a SQLCODE of 100 is not an error; it means 'no rows found'."
+     },
+     {
+         question: "START can only be used in RANDOM mode.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - START can be used in SEQUENTIAL or DYNAMIC mode, not RANDOM mode."
+     },
+     {
+         question: "BY VALUE passes a copy of the data item to a subprogram.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - BY VALUE passes a copy of the data item to a subprogram."
+     },
+     {
+         question: "KSDS DELETE requires opening the file in I-O mode.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - KSDS DELETE requires opening the file in I-O mode."
+     },
+     {
+         question: "The REWRITE statement can change a KSDS record's key field.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 1,
+         explanation: "False - The REWRITE statement cannot change a KSDS record's key field."
      }
  ];
 
