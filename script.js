@@ -1050,6 +1050,127 @@ const codingQuestions = [
          explanation: "IF p1 >= p2 AND p1 >= p3 MOVE p1 TO p-max ELSE IF p2 >= p1 AND p2 >= p3 MOVE p2 TO p-max ELSE MOVE p3 TO p-max is the correct logic for finding the maximum of three values."
      },
      {
+         question: "Control Break Processing: In the BRANCH-SUMMARY program, what triggers the printing of branch totals?",
+         options: [
+             "When EOF is reached",
+             "When BRANCH NOT = WS-CURRENT-BRANCH",
+             "When SALE-AMT exceeds a threshold",
+             "When WS-BRANCH-TOTAL reaches maximum"
+         ],
+         correct: 1,
+         explanation: "Branch totals are printed when BRANCH NOT = WS-CURRENT-BRANCH, indicating a change in the control field (branch)."
+     },
+     {
+         question: "Control Break Processing: What must be done when a control break occurs in the BRANCH-SUMMARY program?",
+         options: [
+             "Only print the current total",
+             "Print branch total, update current branch, and reset branch total to 0",
+             "Close and reopen the file",
+             "Skip to the next record"
+         ],
+         correct: 1,
+         explanation: "When a control break occurs, you must print the branch total, move the new branch to WS-CURRENT-BRANCH, and reset WS-BRANCH-TOTAL to 0."
+     },
+     {
+         question: "Control Break Processing: Why is the first record handled specially in control break logic?",
+         options: [
+             "To validate the file format",
+             "To establish the initial control field value (WS-CURRENT-BRANCH)",
+             "To count total records",
+             "To check for empty files"
+         ],
+         correct: 1,
+         explanation: "The first record establishes the initial control field value (MOVE BRANCH TO WS-CURRENT-BRANCH) before processing begins."
+     },
+     {
+         question: "Subprogram Design: In the FV-CALC subprogram, how is the interest rate converted from percentage to decimal?",
+         options: [
+             "COMPUTE WS-RATE-DEC = L-RATE * 100",
+             "COMPUTE WS-RATE-DEC = L-RATE / 100",
+             "MOVE L-RATE TO WS-RATE-DEC",
+             "COMPUTE WS-RATE-DEC = L-RATE + 100"
+         ],
+         correct: 1,
+         explanation: "The rate is converted from percentage to decimal using COMPUTE WS-RATE-DEC = L-RATE / 100 (e.g., 5.000% becomes 0.05000)."
+     },
+     {
+         question: "Subprogram Design: What is the purpose of WS-ONE-PLUS in the FV-CALC subprogram?",
+         options: [
+             "To store the original principal amount",
+             "To store (1 + interest rate) for the compound interest calculation",
+             "To count the number of periods",
+             "To store the final future value"
+         ],
+         correct: 1,
+         explanation: "WS-ONE-PLUS stores (1 + interest rate) which is used repeatedly in the compound interest calculation (1+r)^n."
+     },
+     {
+         question: "Subprogram Design: How is the power calculation (1+r)^n implemented in FV-CALC?",
+         options: [
+             "Using the COMPUTE statement with exponentiation",
+             "Using a PERFORM VARYING loop to multiply WS-ONE-PLUS by itself N times",
+             "Using built-in power functions",
+             "Using logarithmic calculations"
+         ],
+         correct: 1,
+         explanation: "The power is calculated using PERFORM VARYING to multiply WS-ONE-PLUS by itself N times: COMPUTE WS-POWER = WS-POWER * WS-ONE-PLUS."
+     },
+     {
+         question: "File Processing: In the BRANCH-SUMMARY program, what data type is used for WS-BRANCH-TOTAL and why?",
+         options: [
+             "PIC 9(11)V99 for simple numeric storage",
+             "PIC S9(11)V99 COMP-3 for signed packed decimal efficiency",
+             "PIC X(11) for character processing",
+             "PIC 9(11) for integer calculations only"
+         ],
+         correct: 1,
+         explanation: "PIC S9(11)V99 COMP-3 is used for efficient packed decimal storage with sign, suitable for financial calculations and totals."
+     },
+     {
+         question: "File Processing: What is the purpose of the EDIT-BRANCH-TOTAL field in BRANCH-SUMMARY?",
+         options: [
+             "To store the raw calculation results",
+             "To provide formatted output with commas and decimal points (ZZ,ZZZ,ZZ9.99)",
+             "To validate input data",
+             "To count the number of records"
+         ],
+         correct: 1,
+         explanation: "EDIT-BRANCH-TOTAL (PIC ZZ,ZZZ,ZZ9.99) provides formatted output with zero suppression, commas, and decimal points for reporting."
+     },
+     {
+         question: "Subprogram Parameters: In the FV-CALC CALL statement, what parameter passing method is used?",
+         options: [
+             "BY CONTENT - passes copies of the values",
+             "BY REFERENCE - passes addresses of the variables (default)",
+             "BY VALUE - passes literal values only",
+             "BY POINTER - passes memory addresses"
+         ],
+         correct: 1,
+         explanation: "BY REFERENCE is the default parameter passing method, allowing the subprogram to modify the caller's variables (like WS-FV)."
+     },
+     {
+         question: "Working-Storage Design: Why are 88-level condition names used in both programs (EOF-YES, EOF-NO)?",
+         options: [
+             "To save memory space",
+             "To provide readable boolean logic and improve code maintainability",
+             "To speed up processing",
+             "To comply with COBOL standards"
+         ],
+         correct: 1,
+         explanation: "88-level condition names (EOF-YES, EOF-NO) provide readable boolean logic, making the code more maintainable than comparing against literal values."
+     },
+     {
+         question: "Error Handling: What happens in BRANCH-SUMMARY if the input file is empty?",
+         options: [
+             "The program abends with an error",
+             "Processing continues with zero totals",
+             "'*** NO DATA ***' is written to the report and processing stops",
+             "The program waits for input"
+         ],
+         correct: 2,
+         explanation: "If EOF-YES after the first read, the program writes '*** NO DATA ***' to the report and exits gracefully."
+     },
+     {
          question: "In DFSort, the SORTFIELDS statement specifies:",
          options: [
              "The type of VSAM file to process",
@@ -1323,6 +1444,303 @@ const codingQuestions = [
          ],
          correct: 1,
          explanation: "The WITH DUPLICATES phrase in alternate keys allows duplicate alternate keys."
+     },
+     {
+         question: "In a DFSORT job, which DD statement specifies the input dataset to be sorted?",
+         options: [
+             "SORTOUT",
+             "SORTIN",
+             "SYSIN",
+             "SYSOUT"
+         ],
+         correct: 1,
+         explanation: "SORTIN specifies the input dataset to be sorted in a DFSORT job."
+     },
+     {
+         question: "In DFSORT, which DD statement specifies the dataset that will receive the sorted output?",
+         options: [
+             "SORTIN",
+             "SORTOUT",
+             "SYSIN",
+             "SYSOUT"
+         ],
+         correct: 1,
+         explanation: "SORTOUT specifies the dataset that will receive the sorted output in DFSORT."
+     },
+     {
+         question: "In the SORTFIELDS parameter, what does the \"CH\" type code indicate?",
+         options: [
+             "Packed decimal",
+             "Character data",
+             "Binary data",
+             "Floating-point data"
+         ],
+         correct: 1,
+         explanation: "The \"CH\" type code in SORTFIELDS indicates character data."
+     },
+     {
+         question: "Which of the following correctly lists the four elements used in a SORTFIELDS sub-parameter?",
+         options: [
+             "Length, Sequence, Key position, Data type",
+             "Start position, Length, Data type, Sequence (A/D)",
+             "File name, Record count, Key field, Sequence",
+             "Start position, End position, Format, Order"
+         ],
+         correct: 1,
+         explanation: "The four elements in a SORTFIELDS sub-parameter are: Start position, Length, Data type, and Sequence (A/D)."
+     },
+     {
+         question: "In VSAM terminology, the smallest unit of information that can be transferred between memory and disk is the:",
+         options: [
+             "Control Block",
+             "Control Area (CA)",
+             "Control Interval (CI)",
+             "Data Block"
+         ],
+         correct: 2,
+         explanation: "The Control Interval (CI) is the smallest unit of information that can be transferred between memory and disk in VSAM."
+     },
+     {
+         question: "Which AMS command is used to create a new KSDS dataset?",
+         options: [
+             "DEFINE CLUSTER",
+             "DEFINE ALTERNATEINDEX",
+             "LISTCAT",
+             "REPRO"
+         ],
+         correct: 0,
+         explanation: "DEFINE CLUSTER is the AMS command used to create a new KSDS dataset."
+     },
+     {
+         question: "When defining a KSDS with AMS, which parameter specifies where the key starts and its length?",
+         options: [
+             "VOLUMES",
+             "RECORDSIZE",
+             "KEYS",
+             "INDEXED"
+         ],
+         correct: 2,
+         explanation: "The KEYS parameter specifies where the key starts and its length when defining a KSDS with AMS."
+     },
+     {
+         question: "Which AMS command is used to copy data from one dataset to another?",
+         options: [
+             "LISTCAT",
+             "REPRO",
+             "PRINT",
+             "ALTER"
+         ],
+         correct: 1,
+         explanation: "REPRO is the AMS command used to copy data from one dataset to another."
+     },
+     {
+         question: "When allocating space for a KSDS in AMS, which parameter is used to reserve space for additional records?",
+         options: [
+             "RECORDSIZE",
+             "FREESPACE",
+             "VOLUMES",
+             "INDEXED"
+         ],
+         correct: 1,
+         explanation: "FREESPACE is the parameter used to reserve space for additional records when allocating space for a KSDS in AMS."
+     },
+     {
+         question: "Which COBOL clause specifies the field to use when accessing a KSDS record directly?",
+         options: [
+             "ACCESS MODE",
+             "KEY IS",
+             "RECORD KEY IS",
+             "ORGANIZATION"
+         ],
+         correct: 2,
+         explanation: "RECORD KEY IS specifies the field to use when accessing a KSDS record directly."
+     },
+     {
+         question: "Which phrase is used after a WRITE or REWRITE to handle duplicate or missing keys in a KSDS?",
+         options: [
+             "INVALID KEY",
+             "FILE STATUS",
+             "ON EXCEPTION",
+             "KEY DUPLICATE"
+         ],
+         correct: 0,
+         explanation: "INVALID KEY is used after a WRITE or REWRITE to handle duplicate or missing keys in a KSDS."
+     },
+     {
+         question: "Which COBOL statement is best suited to replace nested IF statements for multiple condition testing?",
+         options: [
+             "SEARCH",
+             "EVALUATE",
+             "INSPECT",
+             "PERFORM"
+         ],
+         correct: 1,
+         explanation: "EVALUATE is best suited to replace nested IF statements for multiple condition testing."
+     },
+     {
+         question: "If a DELETE statement is executed for a KSDS record that does not exist, COBOL will:",
+         options: [
+             "Ignore the request",
+             "Return INVALID KEY",
+             "End the program",
+             "Overwrite with blanks"
+         ],
+         correct: 1,
+         explanation: "If a DELETE statement is executed for a KSDS record that does not exist, COBOL will return INVALID KEY."
+     },
+     {
+         question: "What is an alternate key in a KSDS?",
+         options: [
+             "A second dataset used for backups",
+             "An additional index to access records by another field",
+             "A duplicate of the primary key",
+             "A field used to encrypt data"
+         ],
+         correct: 1,
+         explanation: "An alternate key in a KSDS is an additional index to access records by another field."
+     },
+     {
+         question: "In KSDS sequential access mode, which clause determines the order in which records are read?",
+         options: [
+             "RECORD KEY IS",
+             "ACCESS MODE IS SEQUENTIAL",
+             "ORGANIZATION IS INDEXED",
+             "ALTERNATE RECORD KEY IS"
+         ],
+         correct: 0,
+         explanation: "RECORD KEY IS determines the order in which records are read in KSDS sequential access mode."
+     },
+     {
+         question: "When processing a KSDS sequentially using an alternate index, you must:",
+         options: [
+             "Use the base cluster's primary key",
+             "Specify the alternate key in the START statement",
+             "Use ACCESS MODE IS RANDOM",
+             "Disable duplicate keys"
+         ],
+         correct: 1,
+         explanation: "When processing a KSDS sequentially using an alternate index, you must specify the alternate key in the START statement."
+     },
+     {
+         question: "In a multi-level control break, which field typically triggers the highest-level break?",
+         options: [
+             "The primary key field",
+             "The lowest-level sort field",
+             "The highest-level sort field",
+             "Any numeric field"
+         ],
+         correct: 2,
+         explanation: "In a multi-level control break, the highest-level sort field typically triggers the highest-level break."
+     },
+     {
+         question: "Where are variables that a subprogram receives from a calling program defined?",
+         options: [
+             "WORKING-STORAGE SECTION",
+             "LINKAGE SECTION",
+             "LOCAL-STORAGE SECTION",
+             "PROCEDURE DIVISION"
+         ],
+         correct: 1,
+         explanation: "Variables that a subprogram receives from a calling program are defined in the LINKAGE SECTION."
+     },
+     {
+         question: "Which of the following is a valid way to reference an element in a two-dimensional table in COBOL?",
+         options: [
+             "TableName(ROW, COL)",
+             "TableName(ROW COL)",
+             "TableName(ROW)(COL)",
+             "TableName(ROW:COL)"
+         ],
+         correct: 2,
+         explanation: "TableName(ROW)(COL) is the valid way to reference an element in a two-dimensional table in COBOL."
+     },
+     {
+         question: "To fix a S0C7 abend, you should first:",
+         options: [
+             "Rerun the job",
+             "Delete the file and reload it",
+             "Use the dump to locate the invalid data and correct it",
+             "Add more working storage"
+         ],
+         correct: 2,
+         explanation: "To fix a S0C7 abend, you should first use the dump to locate the invalid data and correct it."
+     },
+     {
+         question: "In DB2, which utility allows you to enter and run SQL statements interactively on the mainframe?",
+         options: [
+             "DCLGEN",
+             "SPUFI",
+             "DSNTEP2",
+             "QMF"
+         ],
+         correct: 1,
+         explanation: "SPUFI (SQL Processor Using File Input) allows you to enter and run SQL statements interactively on the mainframe."
+     },
+     {
+         question: "In an embedded SQL program, which structure contains the most recent SQL return code?",
+         options: [
+             "SQLDA",
+             "SQLCA",
+             "DBRM",
+             "SYSIBM"
+         ],
+         correct: 1,
+         explanation: "SQLCA (SQL Communication Area) contains the most recent SQL return code in embedded SQL programs."
+     },
+     {
+         question: "An SQLCODE of 100 indicates:",
+         options: [
+             "Duplicate key",
+             "End of data / No rows found",
+             "Invalid host variable",
+             "SQL statement not executed"
+         ],
+         correct: 1,
+         explanation: "An SQLCODE of 100 indicates end of data or no rows found."
+     },
+     {
+         question: "In DB2 embedded SQL, what is the purpose of the DECLARE CURSOR statement?",
+         options: [
+             "Define the SQLCA",
+             "Specify the SELECT statement for a result set",
+             "Open the database connection",
+             "Bind the program to the DB2 subsystem"
+         ],
+         correct: 1,
+         explanation: "The DECLARE CURSOR statement specifies the SELECT statement for a result set in DB2 embedded SQL."
+     },
+     {
+         question: "What must be done before a cursor can be reused for a different query?",
+         options: [
+             "CLOSE it and then OPEN it again",
+             "RESET it",
+             "REDECLARE it",
+             "BIND it again"
+         ],
+         correct: 0,
+         explanation: "Before a cursor can be reused for a different query, you must CLOSE it and then OPEN it again."
+     },
+     {
+         question: "Which is the correct sequence for preparing and running a COBOL/DB2 program?",
+         options: [
+             "Compile → Precompile → Link → Bind",
+             "Precompile → Compile → Link → Bind",
+             "Precompile → Link → Compile → Bind",
+             "Bind → Precompile → Compile → Link"
+         ],
+         correct: 1,
+         explanation: "The correct sequence for preparing and running a COBOL/DB2 program is: Precompile → Compile → Link → Bind."
+     },
+     {
+         question: "In DB2, what does the BIND process do?",
+         options: [
+             "Allocates space for a table",
+             "Associates a DBRM with a database plan/package",
+             "Generates SQL statements",
+             "Creates a cursor"
+         ],
+         correct: 1,
+         explanation: "The BIND process associates a DBRM (Database Request Module) with a database plan/package."
      }
 ];
 
@@ -1750,6 +2168,195 @@ const trueFalseQuestions = [
          ],
          correct: 1,
          explanation: "False - The REWRITE statement cannot change a KSDS record's key field."
+     },
+     {
+         question: "In DFSORT, secondary sort fields can be specified to break ties after sorting on the primary field.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - In DFSORT, secondary sort fields can be specified to break ties after sorting on the primary field."
+     },
+     {
+         question: "A Control Area (CA) is made up of multiple Control Intervals (CIs).",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - A Control Area (CA) is made up of multiple Control Intervals (CIs)."
+     },
+     {
+         question: "The LISTCAT command in AMS can display catalog information for a VSAM dataset.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The LISTCAT command in AMS can display catalog information for a VSAM dataset."
+     },
+     {
+         question: "In AMS, the DEFINE PATH command is used to create an association between an alternate index and its base cluster.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - In AMS, the DEFINE PATH command is used to create an association between an alternate index and its base cluster."
+     },
+     {
+         question: "Defining a KSDS interactively in ISPF requires specifying the key length, key position, record size, and space allocation.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - Defining a KSDS interactively in ISPF requires specifying the key length, key position, record size, and space allocation."
+     },
+     {
+         question: "In COBOL, when using READ ... WITH KEY IS ..., the key field must match the RECORD KEY defined in the FD.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - When using READ ... WITH KEY IS ..., the key field must match the RECORD KEY defined in the FD."
+     },
+     {
+         question: "The REWRITE statement updates an existing record in a KSDS without changing its primary key.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The REWRITE statement updates an existing record in a KSDS without changing its primary key."
+     },
+     {
+         question: "The EVALUATE statement in COBOL is similar to a CASE structure in other languages.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The EVALUATE statement in COBOL is similar to a CASE structure in other languages."
+     },
+     {
+         question: "In KSDS random access mode, you must OPEN I-O or OPEN OUTPUT before performing a WRITE.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - In KSDS random access mode, you must OPEN I-O or OPEN OUTPUT before performing a WRITE."
+     },
+     {
+         question: "A KSDS alternate key can be defined to allow duplicate values.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - A KSDS alternate key can be defined to allow duplicate values using the WITH DUPLICATES clause."
+     },
+     {
+         question: "The START statement positions the file pointer at the first record that meets the specified key condition.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The START statement positions the file pointer at the first record that meets the specified key condition."
+     },
+     {
+         question: "Multi-level control break logic allows grouping and totaling data at more than one hierarchical level.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - Multi-level control break logic allows grouping and totaling data at more than one hierarchical level."
+     },
+     {
+         question: "In COBOL, CALL BY CONTENT passes a copy of the data, and changes made in the subprogram do not affect the caller's variables.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - CALL BY CONTENT passes a copy of the data, and changes made in the subprogram do not affect the caller's variables."
+     },
+     {
+         question: "The USING phrase in a CALL statement must list parameters in the same order as in the subprogram's PROCEDURE DIVISION header.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The USING phrase in a CALL statement must list parameters in the same order as in the subprogram's PROCEDURE DIVISION header."
+     },
+     {
+         question: "A S0C7 abend is most often caused by non-numeric data in a field defined with a numeric PIC clause.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - A S0C7 abend is most often caused by non-numeric data in a field defined with a numeric PIC clause."
+     },
+     {
+         question: "DCLGEN is used to generate COBOL copybooks from DB2 table definitions.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - DCLGEN (Declarations Generator) is used to generate COBOL copybooks from DB2 table definitions."
+     },
+     {
+         question: "An SQLCODE of 0 means the SQL statement completed successfully.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - An SQLCODE of 0 means the SQL statement completed successfully."
+     },
+     {
+         question: "A negative SQLCODE indicates some type of error.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - A negative SQLCODE indicates some type of error."
+     },
+     {
+         question: "After declaring a cursor, you must OPEN it before using FETCH.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - After declaring a cursor, you must OPEN it before using FETCH."
+     },
+     {
+         question: "Host variables in embedded SQL must be defined in the WORKING-STORAGE SECTION and preceded by a colon when used in SQL statements.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - Host variables in embedded SQL must be defined in the WORKING-STORAGE SECTION and preceded by a colon when used in SQL statements."
+     },
+     {
+         question: "The DBRM (Database Request Module) is created during precompilation and used in the bind process.",
+         options: [
+             "True",
+             "False"
+         ],
+         correct: 0,
+         explanation: "True - The DBRM (Database Request Module) is created during precompilation and used in the bind process."
      }
  ];
 
@@ -1757,6 +2364,7 @@ const trueFalseQuestions = [
 let currentQuestion = 0;
 let score = 0;
 let userAnswers = [];
+let skippedQuestions = [];
 let quizCompleted = false;
 
 // DOM elements
@@ -1768,6 +2376,7 @@ const startBtn = document.getElementById('start-btn');
 const studyBtn = document.getElementById('study-btn');
 const exitBtn = document.getElementById('exit-btn');
 const prevBtn = document.getElementById('prev-btn');
+const skipBtn = document.getElementById('skip-btn');
 const nextBtn = document.getElementById('next-btn');
 const submitBtn = document.getElementById('submit-btn');
 const questionText = document.getElementById('question-text');
@@ -1790,6 +2399,7 @@ function initQuiz() {
     const totalQuestions = quizQuestions.length + codingQuestions.length + trueFalseQuestions.length;
     totalQuestionsElement.textContent = totalQuestions;
     userAnswers = new Array(totalQuestions).fill(null);
+    skippedQuestions = new Array(totalQuestions).fill(false);
     updateProgress();
 }
 
@@ -1839,6 +2449,11 @@ function displayQuestion() {
         showImmediateFeedback(userAnswers[currentQuestion]);
     }
     
+    // Show skip notification if question was previously skipped
+    if (skippedQuestions[currentQuestion]) {
+        showSkipNotification();
+    }
+    
     updateProgress();
     updateNavigationButtons();
 }
@@ -1846,6 +2461,7 @@ function displayQuestion() {
 // Select an option
 function selectOption(optionIndex) {
     userAnswers[currentQuestion] = optionIndex;
+    skippedQuestions[currentQuestion] = false; // Clear skip status if user answers
     
     // Update visual selection
     optionsContainer.querySelectorAll('.option').forEach((option, index) => {
@@ -1856,6 +2472,54 @@ function selectOption(optionIndex) {
     showImmediateFeedback(optionIndex);
     
     updateNavigationButtons();
+}
+
+// Skip current question
+function skipCurrentQuestion() {
+    skippedQuestions[currentQuestion] = true;
+    userAnswers[currentQuestion] = null; // Clear any previous answer
+    
+    // Remove any existing feedback
+    const existingFeedback = optionsContainer.querySelector('.feedback');
+    if (existingFeedback) {
+        existingFeedback.remove();
+    }
+    
+    // Clear option selections
+    optionsContainer.querySelectorAll('.option').forEach(option => {
+        option.classList.remove('selected');
+    });
+    
+    // Show skip notification
+    showSkipNotification();
+    
+    updateNavigationButtons();
+    
+    // Auto-advance to next question after a short delay
+    setTimeout(() => {
+        const totalQuestions = quizQuestions.length + codingQuestions.length + trueFalseQuestions.length;
+        if (currentQuestion < totalQuestions - 1) {
+            currentQuestion++;
+            displayQuestion();
+        }
+    }, 1000);
+}
+
+// Show skip notification
+function showSkipNotification() {
+    // Remove any existing skip notification
+    const existingNotification = optionsContainer.querySelector('.question-skipped');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create skip notification
+    const skipNotification = document.createElement('div');
+    skipNotification.className = 'question-skipped';
+    skipNotification.textContent = '⏭️ Question skipped. You can come back to this later.';
+    
+    // Insert notification after options
+    optionsContainer.appendChild(skipNotification);
 }
 
 // Show immediate feedback for answers
@@ -2050,13 +2714,14 @@ function showResults() {
     // Multiple Choice Questions
     quizQuestions.forEach((question, index) => {
         const isCorrect = userAnswers[index] === question.correct;
-        const userAnswer = userAnswers[index] !== null ? question.options[userAnswers[index]] : 'Not answered';
+        const isSkipped = skippedQuestions[index];
+        const userAnswer = userAnswers[index] !== null ? question.options[userAnswers[index]] : (isSkipped ? 'Skipped' : 'Not answered');
         const correctAnswer = question.options[question.correct];
         
         const resultElement = document.createElement('div');
-        resultElement.className = `question-result ${isCorrect ? 'correct' : 'incorrect'}`;
+        resultElement.className = `question-result ${isCorrect ? 'correct' : (isSkipped ? 'skipped' : 'incorrect')}`;
         resultElement.innerHTML = `
-            <h5>Question ${questionNumber} (Multiple Choice)</h5>
+            <h5>Question ${questionNumber} (Multiple Choice) ${isSkipped ? '⏭️' : ''}</h5>
             <p><strong>Your answer:</strong> ${userAnswer}</p>
             <p><strong>Correct answer:</strong> ${correctAnswer}</p>
             <p><strong>Explanation:</strong> ${question.explanation}</p>
@@ -2069,13 +2734,14 @@ function showResults() {
     codingQuestions.forEach((question, index) => {
         const questionIndex = quizQuestions.length + index;
         const isCorrect = userAnswers[questionIndex] === question.correct;
-        const userAnswer = userAnswers[questionIndex] !== null ? question.options[userAnswers[questionIndex]] : 'Not answered';
+        const isSkipped = skippedQuestions[questionIndex];
+        const userAnswer = userAnswers[questionIndex] !== null ? question.options[userAnswers[questionIndex]] : (isSkipped ? 'Skipped' : 'Not answered');
         const correctAnswer = question.options[question.correct];
         
         const resultElement = document.createElement('div');
-        resultElement.className = `question-result ${isCorrect ? 'correct' : 'incorrect'}`;
+        resultElement.className = `question-result ${isCorrect ? 'correct' : (isSkipped ? 'skipped' : 'incorrect')}`;
         resultElement.innerHTML = `
-            <h5>Question ${questionNumber} (Coding)</h5>
+            <h5>Question ${questionNumber} (Coding) ${isSkipped ? '⏭️' : ''}</h5>
             <p><strong>Your answer:</strong> ${userAnswer}</p>
             <p><strong>Correct answer:</strong> ${correctAnswer}</p>
             <p><strong>Explanation:</strong> ${question.explanation}</p>
@@ -2088,13 +2754,14 @@ function showResults() {
     trueFalseQuestions.forEach((question, index) => {
         const questionIndex = quizQuestions.length + codingQuestions.length + index;
         const isCorrect = userAnswers[questionIndex] === question.correct;
-        const userAnswer = userAnswers[questionIndex] !== null ? question.options[userAnswers[questionIndex]] : 'Not answered';
+        const isSkipped = skippedQuestions[questionIndex];
+        const userAnswer = userAnswers[questionIndex] !== null ? question.options[userAnswers[questionIndex]] : (isSkipped ? 'Skipped' : 'Not answered');
         const correctAnswer = question.options[question.correct];
         
         const resultElement = document.createElement('div');
-        resultElement.className = `question-result ${isCorrect ? 'correct' : 'incorrect'}`;
+        resultElement.className = `question-result ${isCorrect ? 'correct' : (isSkipped ? 'skipped' : 'incorrect')}`;
         resultElement.innerHTML = `
-            <h5>Question ${questionNumber} (True/False)</h5>
+            <h5>Question ${questionNumber} (True/False) ${isSkipped ? '⏭️' : ''}</h5>
             <p><strong>Your answer:</strong> ${userAnswer}</p>
             <p><strong>Correct answer:</strong> ${correctAnswer}</p>
             <p><strong>Explanation:</strong> ${question.explanation}</p>
@@ -2133,6 +2800,10 @@ prevBtn.addEventListener('click', () => {
         currentQuestion--;
         displayQuestion();
     }
+});
+
+skipBtn.addEventListener('click', () => {
+    skipCurrentQuestion();
 });
 
 nextBtn.addEventListener('click', () => {

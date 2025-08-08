@@ -4,7 +4,7 @@ A comprehensive web-based practice quiz for System Z COBOL programming concepts 
 
 ## Features
 
-- **180 Questions** (100 Multiple Choice + 30 Coding + 50 True/False) covering essential COBOL and mainframe concepts
+- **242 Questions** (128 Multiple Choice + 42 Coding + 72 True/False) covering essential COBOL and mainframe concepts
 - **Interactive Interface** with smooth navigation between questions
 - **Progress Tracking** with visual progress bar
 - **Detailed Explanations** for each question
@@ -98,7 +98,7 @@ Quiz/
 
 ## Quiz Questions
 
-The quiz includes 180 carefully crafted questions (100 multiple choice + 30 coding + 50 true/false) that test:
+The quiz includes 242 carefully crafted questions (128 multiple choice + 42 coding + 72 true/false) that test:
 
 - **Basic Knowledge**: Fundamental COBOL concepts and syntax
 - **VSAM Understanding**: Control intervals, KSDS requirements, VSAM operations
